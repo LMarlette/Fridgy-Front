@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../../App.css';
+import '../../App.css'
  import 'bootstrap/dist/css/bootstrap.css';
  import {
   Collapse,
@@ -17,7 +17,7 @@ import '../../App.css';
   import './header.css';
   import logo from  '../../Assets/images/fridgy-logo.svg';
 
-class Header extends Component {
+class HeaderLogin extends Component {
   constructor(props) {
     super(props);
 
@@ -35,20 +35,19 @@ class Header extends Component {
     return (
 <div>
 <header>
-<div className="center">
-
 <div className='clearfix'>
-<img src={logo} className="headerLogo" alt="WhyCS Logo" />
+<img src={logo} className="headerLoginLogo" alt="WhyCS Logo" />
 
-<div className="headerText">FRIDGY</div>  
+<div className="headerLoginText">FRIDGY</div>  
+
 </div>
-</div>
- </header>
+  </header>
 
 
 
 <div>
-        <Navbar color="light" light expand="md">
+  
+        <Navbar color="navbarColor" className="border border-secondary" light expand="md">
           <NavbarBrand href="/" className='navbarText'>Fridgy</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -63,13 +62,19 @@ class Header extends Component {
                 <NavLink href="/contact">Contact</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/login">Login</NavLink>
+                <NavLink href="/fridge">My Fridge</NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/recipeSearch">Recipe Search</NavLink>
               </NavItem>
            
             </Nav>
           </Collapse>
+
         </Navbar>
+ 
       </div>
+
 
 
  </div>
@@ -77,5 +82,5 @@ class Header extends Component {
   }
 }
 
-export default Header;
+export default HeaderLogin;
 

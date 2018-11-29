@@ -1,0 +1,65 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins);
+@import url(https://use.fontawesome.com/releases/v5.3.1/css/all.css);
+ 
+
+
+
+
+.headerLogo {
+    width: 7%;
+    height: auto;
+    float: left;
+}
+
+.headerLoginLogo {
+    width: 3%;
+    height: auto;
+    float: left;
+}
+
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+    width: 60%;
+}
+
+.headerText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 150px;
+    color: #14B3ED;
+}
+
+.headerLoginText {
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    color: #14B3ED;
+}
+
+
+.navbarText {
+     color: #2699FB !important;
+     font-family: 'Poppins', sans-serif !important;
+
+}
+
+.navbarColor{
+    color: white;
+  
+}
+
+navbarPad{
+    margin-top: 0px; 
+    margin-bottom: 0px 
+}
+
+hr { 
+    margin-top: 0px; 
+    margin-bottom: 0px 
+}
+
+.center{
+
+text-align: center;
+}
