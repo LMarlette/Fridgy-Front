@@ -56,3 +56,70 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+.transparentBG{
+    opacity: .9;
+}
+
+/* button alignment to center horizontally */
+
+#btnL,
+#btnR{
+    display: inline-block !important;
+    vertical-align: top !important;
+}
+
+ 
+
+/* end button alignment */
+
+
+
+/* signup page css */
+
+.titleText {
+    color: #2699FB !important;
+
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 50px !important;
+}
+
+.secondText{
+    color: #2699FB !important;
+
+    font-family: 'Poppins', sans-serif !important;
+    font-size: 20px !important;
+
+}
+
+.homeGraphic {
+    width: 100%; 
+    height: auto;
+    float: right;
+}
+
+
+
+
+
+.headerLogo {
+    width: 15%;
+    height: auto;
+     vertical-align: baseline;
+
+     
+
+
+}
+
+.center{
+    text-align: left;
+    align-content: middle;
+    margin: auto;
+    width: 60%;
+    font-size: 200px;
+    color: #2699FB;
+
+}
+
+/* end signup page css */
