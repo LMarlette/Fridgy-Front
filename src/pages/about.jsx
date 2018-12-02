@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from '../Components/headerComponent/header';
 import './pages.css'; 
-import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, NavLink,FormGroup,Label,Input,Button,Row,Col,Container } from 'reactstrap';
-import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
- 
+import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, NavLink,FormGroup,Label,Input,Button, ButtonGroup, Row,Col,Container } from 'reactstrap';
+//import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
+import Footer from '../Components/footerComponent/footer';
 
  class About extends Component {
 
@@ -35,7 +35,7 @@ import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } 
       <Row>
       
       <Col sm="12" md={{ size: 8, offset: 2 }}>
-      <Card body className="text-center" inverse style={{borderColor: 'white' }}> 
+      <Card body className="text-center transparentBG" inverse style={{borderColor: 'white' }}> 
         <CardTitle><div className="titleText">Information</div></CardTitle>
         <CardText>
         <div className="secondText">Excepteur sint occaecat cupidatat non proident, 
@@ -54,18 +54,28 @@ import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } 
              eaque ipsa quae apsb illo inventore veritatis et quasi architecto beiatae 
              vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
               aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
-              qui ratione voluptatem sequi nesciunt.       </div></CardText>
+              qui ratione voluptatem sequi nesciunt.       </div>
+              </CardText>
               <br/>
+        <div>
+        <ButtonGroup>
 
         <NavLink href="/signup">
-        <Button outline color="secondary">Sign Up</Button>
+        <Button id="btnL" outline color="secondary">Sign Up</Button>
         </NavLink>
+
+         <NavLink href="/login">
+        <Button id="btnR" outline color="secondary">Log In</Button>
+        </NavLink>
+        </ButtonGroup>
+
+        </div>
       </Card>
 
           </Col>
     </Row>
     </div>
-
+<Footer />
         </div>
      );
   }
@@ -74,7 +84,7 @@ import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } 
 const bgimg1 = require('../Assets/images/bg1.jpg');
 const divStyle = {
   width: '100%',
-  height: '800px',
+  height: '100%',
   backgroundImage: `url(${bgimg1})`,
   backgroundSize: 'cover'  
 };
