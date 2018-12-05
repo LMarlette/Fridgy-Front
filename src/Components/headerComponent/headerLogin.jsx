@@ -67,7 +67,10 @@ class HeaderLogin extends Component {
               <NavItem>
                 <NavLink href="/recipeSearch">Recipe Search</NavLink>
               </NavItem>
-           
+              {/* how do we do the logout */}
+              <NavItem>
+                <NavLink href="/logout">Recipe Search</NavLink>
+              </NavItem>
             </Nav>
           </Collapse>
 

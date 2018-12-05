@@ -60,7 +60,7 @@ import Footer from '../Components/footerComponent/footer';
         <div>
         <ButtonGroup>
 
-        <NavLink href="/signup">
+        <NavLink href="/signup/1">
         <Button id="btnL" outline color="secondary">Sign Up</Button>
         </NavLink>
 
