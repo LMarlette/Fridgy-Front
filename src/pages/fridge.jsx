@@ -8,7 +8,7 @@ import HeaderLogin from '../Components/headerComponent/headerLogin';
            <HeaderLogin />
 
 
-        test Fridge
+          IM A FRIDGE
 
         </div>
      );

@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  Redirect
+} from 'react-router-dom';
+
 import './App.css';
 
 //import Navigation from './pages/navigation';
@@ -16,8 +23,8 @@ import Fridge from './pages/fridge';
 
 class App extends Component {
   render() {
-    return (
-      <BrowserRouter>
+    return (  
+      <Router>
         <div>
          <Switch>
           <Route path='/' component={SignUp} exact/>
@@ -29,11 +36,12 @@ class App extends Component {
           <Route path='/recipesearch' component={RecipeSearch} />
           <Route path='/signup' component={SignUp} />
           <Route path='/fridge' component={Fridge} />
+          <Route component={About} /> // If an unknown route is called redirect to About
 
           <Route component={Error} />
         </Switch>
         </div>
-      </BrowserRouter>
+      </Router>
       
     );
   }
