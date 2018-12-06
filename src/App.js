@@ -29,7 +29,7 @@ class App extends Component {
       <Router>
         <div>
          <Switch>
-          <Route path='/' component={About} exact/>
+          <Route path='/' globalState={this.state} createSetGlobalState={this.createSetGlobalState} component={About} exact/>
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route path='/login' component={Login} />
