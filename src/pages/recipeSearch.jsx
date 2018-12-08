@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Header from '../Components/headerComponent/header';
 import './pages.css'; 
 import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, NavLink,FormGroup,Label,Input,Button, ButtonGroup, Row,Col,Container } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import axios from 'axios';
 
-import { localInstance } from '../config/localInstance';
-
  class RecipeSearch extends Component {
   componentWillMount() {
     // fires immediately before the initial render
     axios.get('/recipes/recipesByMissing')
     .then((response) => {
-      alert(response);
       this.setState({
         recipes: response.data.recipes
       })
@@ -32,8 +30,21 @@ import { localInstance } from '../config/localInstance';
   }
 
   render() {
-    const recipeFormat = this.state.recipes.map((d) => {
-      return <div class='text'><h2>{d.title}</h2><img src={d.image} alt="Missing Img"/></div>});
+    const recipeFormat = this.state.recipes.map((recipe) => {
+      return <div class='text'>
+              <Link to={`/recipe/${recipe.id}`}>
+                <h2>{recipe.title}</h2>
+                <img src={recipe.image} alt="Missing Img"/>
+                <p>Used Ingredients ({recipe.usedIngredientCount})</p>
+                  {recipe.usedIngredients.map((usedIng) =>{
+                    return <p>{usedIng.name}</p>
+                  })}
+                <p>Needed Ingredients ({recipe.missedIngredientCount})</p>
+                  {recipe.missedIngredients.map((neededIng) =>{
+                    return <p>{neededIng.name}</p>
+                  })}
+              </Link >
+            </div>});
     const bgimg1 = require('../Assets/images/bg3.jpg');
     const divStyle = {
       width: '100%',
@@ -46,7 +57,7 @@ import { localInstance } from '../config/localInstance';
            <br/>
 
 <div className='homePad'>
-
+    
     <Row>
     
     <Col sm="12" md={{ size: 8, offset: 2 }}>
@@ -60,17 +71,6 @@ import { localInstance } from '../config/localInstance';
             </CardText>
             <br/>
       <div>
-      <ButtonGroup>
-
-      <NavLink href="/signup/1">
-      <Button id="btnL" outline color="secondary">Sign Up</Button>
-      </NavLink>
-
-       <NavLink href="/login">
-      <Button id="btnR" outline color="secondary">Log In</Button>
-      </NavLink>
-      </ButtonGroup>
-
       </div>
     </Card>
 

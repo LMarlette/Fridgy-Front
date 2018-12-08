@@ -4,7 +4,7 @@ import Header from '../Components/headerComponent/header';
 import { Card, CardGroup, CardImg,CardText,CardBody,CardTitle, Progress, CardSubtitle, NavLink,FormGroup,Label,Input,Button,Row,Col,Container } from 'reactstrap';
 import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
 import { Redirect } from 'react-router'
-import { localInstance } from '../config/localInstance';
+import { localInstance } from '../config/instances';
 import axios from 'axios';
 
  class Login extends Component {
