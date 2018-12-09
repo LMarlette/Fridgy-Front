@@ -76,7 +76,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
  
       </Card>
  
-       <Card body inverse style={{borderColor: 'white' }}> 
+       <Card body className="transparentBG" inverse style={{borderColor: 'white' }}> 
         <CardTitle><div className="titleText">Edit Food Preferences</div></CardTitle>
 
         <CardBody>

@@ -6,6 +6,9 @@ import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } 
 import { Redirect } from 'react-router'
 import { localInstance } from '../config/localInstance';
 import axios from 'axios';
+import food from '../Assets/images/food1.jpg';
+import logo from '../Assets/images/fridgy-logo.svg'
+import Footer from '../Components/footerComponent/footer'
 
  class Login extends Component {
   constructor(props) {
@@ -14,11 +17,18 @@ import axios from 'axios';
     this.handleValidSubmit = this.handleValidSubmit.bind(this)
 
     this.state = {
+      isOpen: false,
+
       email: '',
       password: '',
       fireRedirect: false
 
     };
+  }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   // updateEmail(value) {
@@ -47,7 +57,7 @@ import axios from 'axios';
     .then((response) => {
       alert(`Server response: \n${JSON.stringify(response.data.msg)}\nWelcome ${JSON.stringify(response.data.firstName)}\nCOOKIE\n${JSON.stringify(response.data.cookie)}`);
       //localStorage.setItem('fridgyCookie', response.data.cookie);
-      // this.setState({  fireRedirect: true})
+      this.setState({  fireRedirect: true})
     })
     .catch((error) => {
       alert(`Error logging in: \n${error}`);
@@ -59,21 +69,70 @@ import axios from 'axios';
     const { from } = this.props.location.state || '/'
 
     return (
-      <div>
+<div className="cComponent" style={divStyle} >
         <Header />
 
+<br/>
+<br/>
+
+ <Row> 
+    <Col sm="12" md={{ size: 8, offset: 2 }}>
+    
+    <CardGroup> 
+
+      <Card >
+      <CardImg width="100%" src={food} alt="food prep img" />
+
+
+      </Card>
+
+
+      <Card body className="transparentBG" inverse style={{borderColor: 'white' }}> 
+      <br/>
+      <br/>
+
+        <CardTitle><div className="titleText">Login</div></CardTitle>
+        <br/>
+
+        <CardBody  >
         <AvForm className="text-form text" onValidSubmit={this.handleValidSubmit}>
           <AvField name="email" label="Email" type="email"  validate={{required: {value: true}}} />
+          <br/>
+
           <AvField name="password" label="Password" type="password" placeholder="********" validate={{minLength: {value: 5}, required: {value: true}}} />
+          <br/>
+          <br/>
+
           <Button  className='btn'  outline color="secondary">Enter</Button>      
         </AvForm>
-              
+              <br/>
+
         {fireRedirect && (<Redirect to={from || '/profile'}/>)}
 
  
+        </CardBody>
+      </Card>
+ </CardGroup>
+</Col>
+</Row>
+<br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+<Footer/>
        </div>
     )
   }
 }
+const bgimg1 = require('../Assets/images/bg1.jpg');
+const divStyle = {
+  width: '100%',
+  height: '100%',
+  backgroundImage: `url(${bgimg1})`,
+  backgroundSize: 'cover'  
+};
 
 export default Login;
