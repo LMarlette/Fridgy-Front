@@ -50,7 +50,9 @@ import logo from '../Assets/images/fridgy-logo.svg'
     const { from } = this.props.location.state || '/'
     const { fireRedirect } = this.state
     return (
+      
 <div className="cComponent" style={divStyle} >
+
 {/* <div> */}
       <header>
      <div className='center'> 
@@ -68,8 +70,10 @@ import logo from '../Assets/images/fridgy-logo.svg'
     <CardGroup> 
       <Card >
  
-      <CardImg className="card-img-top" width="100%" src={food} alt="food prep img" />
- 
+      {/* <CardImg className="signupImg" src={food} alt="food prep img" /> */}
+      <div class="signupImg">
+          </div>
+
       </Card>
  
        <Card body inverse style={{borderColor: 'white' }}> 

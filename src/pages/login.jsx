@@ -47,7 +47,7 @@ import axios from 'axios';
     .then((response) => {
       alert(`Server response: \n${JSON.stringify(response.data.msg)}\nWelcome ${JSON.stringify(response.data.firstName)}\nCOOKIE\n${JSON.stringify(response.data.cookie)}`);
       //localStorage.setItem('fridgyCookie', response.data.cookie);
-      // this.setState({  fireRedirect: true})
+      this.setState({  fireRedirect: true})
     })
     .catch((error) => {
       alert(`Error logging in: \n${error}`);
