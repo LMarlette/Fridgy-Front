@@ -8,7 +8,10 @@ import { Redirect } from 'react-router'
 //images
 import food from '../Assets/images/food2.jpg';
 import logo from '../Assets/images/fridgy-logo.svg'
- class SignUp1 extends Component {
+import Footer from '../Components/footerComponent/footer'
+
+
+class SignUp1 extends Component {
   constructor(props) {
     super(props);
     
@@ -50,7 +53,9 @@ import logo from '../Assets/images/fridgy-logo.svg'
     const { from } = this.props.location.state || '/'
     const { fireRedirect } = this.state
     return (
+      
 <div className="cComponent" style={divStyle} >
+
 {/* <div> */}
       <header>
      <div className='center'> 
@@ -68,11 +73,12 @@ import logo from '../Assets/images/fridgy-logo.svg'
     <CardGroup> 
       <Card >
  
-      <CardImg className="card-img-top" width="100%" src={food} alt="food prep img" />
- 
+      {/* <div class="signupImg">
+          </div> */}
+
       </Card>
  
-       <Card body inverse style={{borderColor: 'white' }}> 
+       <Card body className="transparentBG" inverse style={{borderColor: 'white' }}> 
         <CardTitle><div className="titleText">Sign Up</div></CardTitle>
         <CardBody>
         <div className="text-center text">1 of 2</div>
@@ -125,7 +131,13 @@ maxLength: {value: 25}
             <br />
             <br />
             <br />
-        </div>
+
+     <br />
+            <br />
+            <br />
+           
+           <Footer />
+                 </div>
      );
   }
 }

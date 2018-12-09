@@ -47,7 +47,7 @@ class HeaderLogin extends Component {
 
 <div>
   
-        <Navbar color="navbarColor" className="border border-secondary" light expand="md">
+        <Navbar color="light" className="border border-secondary" light expand="md">
           <NavbarBrand href="/" className='navbarText'>Fridgy</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
