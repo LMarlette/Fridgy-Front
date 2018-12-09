@@ -16,7 +16,7 @@ import Login from './pages/login';
 import Profile from './pages/profile';
 import ProfileWelcome from './pages/profileWelcome';
 import RecipeSearch from './pages/recipeSearch';
-import SignUpTest from './pages/signuptest';
+import RecipeDisplay from './pages/recipeDisplay';
 import Error from './pages/error';
 import Fridge from './pages/fridge';
 import SignUp2 from './pages/signup2';
@@ -36,6 +36,7 @@ class App extends Component {
           <Route path='/profile' component={Profile} />
           <Route path='/profilewelcome' component={ProfileWelcome} />
           <Route path='/recipesearch' component={RecipeSearch} />
+          <Route path='/recipe/:recipeId' component={RecipeDisplay} />
           {/* <Route path='/signup' component={SignUp} /> */}
           <Route path='/fridge' component={Fridge} />
           <Route path='/signup/2' component={SignUp2} />
