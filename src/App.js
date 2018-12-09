@@ -17,7 +17,6 @@ import Profile from './pages/profile';
 import ProfileWelcome from './pages/profileWelcome';
 import RecipeSearch from './pages/recipeSearch';
 import RecipeDisplay from './pages/recipeDisplay';
-import SignUpTest from './pages/signuptest';
 import Error from './pages/error';
 import Fridge from './pages/fridge';
 import SignUp2 from './pages/signup2';

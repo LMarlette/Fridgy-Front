@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import HeaderLogin from '../Components/headerComponent/headerLogin';
 import { Route, Redirect } from 'react-router';
 import axios from 'axios';
- import FetchDemo from "./test";
 import {
   Card,
   CardImg,
@@ -97,8 +96,6 @@ var localInstance = axios.create({
           )} */}
         </ul> 
 
-
-<FetchDemo/>
         </div>
      );
   }
