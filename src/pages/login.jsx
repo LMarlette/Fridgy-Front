@@ -55,7 +55,7 @@ import Footer from '../Components/footerComponent/footer'
       password: password
     })
     .then((response) => {
-      alert(`Server response: \n${JSON.stringify(response.data.msg)}\nWelcome ${JSON.stringify(response.data.firstName)}\nCOOKIE\n${JSON.stringify(response.data.cookie)}`);
+      alert(`Server response: \n${JSON.stringify(response.data.msg)}\nWelcome ${JSON.stringify(response.data.firstName)}`);
       //localStorage.setItem('fridgyCookie', response.data.cookie);
       this.setState({  fireRedirect: true})
     })

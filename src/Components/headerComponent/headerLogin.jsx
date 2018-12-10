@@ -36,6 +36,7 @@ class HeaderLogin extends Component {
 <div>
 <header>
 <div className='clearfix'>
+
 <img src={logo} className="headerLoginLogo" alt="WhyCS Logo" />
 
 <div className="headerLoginText">FRIDGY</div>  
@@ -69,7 +70,7 @@ class HeaderLogin extends Component {
               </NavItem>
               {/* how do we do the logout */}
               <NavItem>
-                <NavLink href="/logout">Recipe Search</NavLink>
+                <NavLink href="/logout">Logout</NavLink>
               </NavItem>
             </Nav>
           </Collapse>

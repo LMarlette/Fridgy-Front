@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import HeaderLogin from '../Components/headerComponent/headerLogin';
 import { Route, Redirect } from 'react-router';
 import axios from 'axios';
-import {
+ import {
   Card,
   CardImg,
   CardText,
@@ -18,6 +18,7 @@ import {
   Col,
   Container
 } from 'reactstrap'
+import Footer from '../Components/footerComponent/footer'
 
 
 var localInstance = axios.create({
@@ -44,10 +45,10 @@ var localInstance = axios.create({
     componentDidMount() {
      localInstance.get('/user/ingredients', {})
     .then(response => {    
-       alert(`${JSON.stringify(response)}`);
+       //alert(`${JSON.stringify(response)}`);
        //const resp = JSON.stringify(response);
         const ingredients = response.data.ingredients;
-        alert(`INGREDIENTS ${ingredients}`);
+        // alert(`INGREDIENTS ${ingredients}`);
         this.setState({ingredients});
        // alert(ingredients[0].id);    
            
@@ -86,8 +87,11 @@ var localInstance = axios.create({
     
 
           IM A FRIDGE
-          <Button className='btn' outline color="secondary">Start Quiz</Button>      
-          <Button className='btn' outline color="secondary">Start Quiz</Button>      
+            
+
+
+
+            
           <Button className='btn' outline color="secondary">Start Quiz</Button>    
 
             <ul>
@@ -96,9 +100,19 @@ var localInstance = axios.create({
           )} */}
         </ul> 
 
+
+ 
+<Footer/>
+
         </div>
      );
   }
 }
-
+const bgimg1 = require('../Assets/images/bg1.jpg');
+const divStyle = {
+  width: '100%',
+  height: '100%',
+  backgroundImage: `url(${bgimg1})`,
+  backgroundSize: 'cover'  
+};
 export default Fridge;

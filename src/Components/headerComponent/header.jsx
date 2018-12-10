@@ -34,18 +34,13 @@ class Header extends Component {
   render() {
     return (
 <div>
-<header>
-<div className="center">
-
-<div className='clearfix'>
-<img src={logo} className="headerLogo" alt="WhyCS Logo" />
+ <header>
+ 
+ <img src={logo} className="headerLogo" alt="WhyCS Logo" />
 
 <div className="headerText">FRIDGY</div>  
-</div>
-</div>
- </header>
-
-
+  </header>
+ 
 
 <div>
         <Navbar color="light" light expand="md">
