@@ -54,9 +54,6 @@ import logo from '../Assets/images/fridgy-logo.svg'
         localStorage.setItem('email', email);
         localStorage.setItem('pw', pw);
 
-      
- 
-
    }
 
   render() {

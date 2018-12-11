@@ -75,6 +75,7 @@ import Footer from '../Components/footerComponent/footer';
           </Col>
     </Row>
     </div>
+    <br/>
 <Footer />
         </div>
      );

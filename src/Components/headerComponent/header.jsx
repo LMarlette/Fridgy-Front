@@ -34,6 +34,7 @@ class Header extends Component {
   render() {
     return (
 <div>
+  
 <header>
 <div className="center">
 

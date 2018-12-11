@@ -7,8 +7,10 @@
 
 .headerLogo {
     width: 7%;
-    height: auto;
+    max-height:200px; 
+    padding-top: 50px;
     float: left;
+    left:0; 
 }
 
 .headerLoginLogo {
@@ -61,5 +63,6 @@ hr {
 
 .center{
 
-text-align: center;
+text-align: left;
+
 }

@@ -61,6 +61,25 @@
     opacity: .9;
 }
 
+
+.card-img-top {
+    height: 25rem;
+
+}
+
+.img-card {
+
+    height: 15rem;
+    object-fit: cover;
+}
+
+
+
+
+
+
+
+
 /* button alignment to center horizontally */
 
 #btnL,
@@ -121,5 +140,6 @@
     color: #2699FB;
 
 }
+
 
 /* end signup page css */
