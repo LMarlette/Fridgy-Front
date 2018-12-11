@@ -9,10 +9,7 @@ import '../../App.css'
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+ } from 'reactstrap';
 
   import './header.css';
   import logo from  '../../Assets/images/fridgy-logo.svg';
@@ -54,13 +51,7 @@ class HeaderLogin extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/about">About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/contact">Contact</NavLink>
+                <NavLink href="/profile">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/fridge">My Fridge</NavLink>

@@ -8,11 +8,7 @@ import '../../App.css';
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  NavLink} from 'reactstrap';
 
   import './header.css';
   import logo from  '../../Assets/images/fridgy-logo.svg';

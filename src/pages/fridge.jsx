@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HeaderLogin from '../Components/headerComponent/headerLogin';
-import { Route, Redirect } from 'react-router';
+import './pages.css'; 
+import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, NavLink,FormGroup,Label,Input,Button, ButtonGroup, Row,Col,Container } from 'reactstrap';
+import Footer from '../Components/footerComponent/footer';
 import axios from 'axios';
- import {
-  Card,
-  CardImg,
-  CardText,
-  CardBody,
-  CardTitle,
-  CardSubtitle,
-  NavLink,
-  FormGroup,
-  Label,
-  Input,
-  Button,
-  Row,
-  Col,
-  Container
-} from 'reactstrap'
-import Footer from '../Components/footerComponent/footer'
+
 
 
 var localInstance = axios.create({
@@ -42,24 +29,19 @@ var localInstance = axios.create({
 
 
     // some other file
-    componentDidMount() {
-     localInstance.get('/user/ingredients', {})
-    .then(response => {    
-       //alert(`${JSON.stringify(response)}`);
-       //const resp = JSON.stringify(response);
-        const ingredients = response.data.ingredients;
-        // alert(`INGREDIENTS ${ingredients}`);
-        this.setState({ingredients});
-       // alert(ingredients[0].id);    
-           
+    componentWillMount() {
+
+     localInstance.get('/user/ingredients')
+    .then(response => {  
+            alert(JSON.stringify(response));  
+        const ingredients = response.data.ingredients
+        this.setState({ingredients})
+    })
+    .catch((error) => {
+      alert(`Error querying for recipes: \n${error}`);
     });
   }
-//        .catch((error) => {
-//         alert(`Error posting \n${error}`);
-//                 })
-    
-  
-// }
+
 
 
 
@@ -74,16 +56,6 @@ var localInstance = axios.create({
          <div>
            <HeaderLogin />
 
-
-           
-
-{/* <Route exact path="/" render={() => (
-  loggedIn ? (
-    <Redirect to="/fridge"/>
-  ) : (
-    <About/>
-  )
-)}/> */}
     
 
           IM A FRIDGE

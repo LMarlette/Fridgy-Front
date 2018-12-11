@@ -11,14 +11,10 @@ import '../../App.css';
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  NavLink } from 'reactstrap';
 
   import './footer.css';
-  import logo from  '../../Assets/images/fridgy-logo.svg';
+  //import logo from  '../../Assets/images/fridgy-logo.svg';
 
 class Footer extends Component {
   constructor(props) {
@@ -54,7 +50,9 @@ class Footer extends Component {
               <NavItem>
                 <NavLink href="/contact">Contact</NavLink>
               </NavItem>
-              
+              <NavItem>
+                <NavLink href="/about">About</NavLink>
+              </NavItem>
            
             </Nav>
           </Collapse>

@@ -54,16 +54,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
 
     return (
      <div className="cComponent" style={divStyle} >
-{/* <div> */}
-      <header>
-     <div className='center'> 
-      <img src={logo} className="headerLogo" alt="Fridgy Logo" />
-
-        FRIDGY
-        
-        </div>
-    
-      </header>
+<Header />
       
   
   <Row>
@@ -72,8 +63,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
     <CardGroup> 
       <Card >
  
-      <CardImg width="100%" src={food} alt="food prep img" />
- 
+      <div><img className="stretch" src={food} alt="food prep img" /></div> 
       </Card>
  
        <Card body className="transparentBG" inverse style={{borderColor: 'white' }}> 

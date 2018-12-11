@@ -1,8 +1,8 @@
 
 import React, { Component } from 'react';
 import Header from '../Components/headerComponent/header';
-import { Card, CardGroup, CardImg,CardText,CardBody,CardTitle, Progress, CardSubtitle, NavLink,FormGroup,Label,Input,Button,Row,Col,Container } from 'reactstrap';
-import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
+import { Card, CardGroup, CardImg,CardBody,CardTitle,Button,Row,Col,NavLink } from 'reactstrap';
+import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { Redirect } from 'react-router'
 import { localInstance } from '../config/instances';
 import axios from 'axios';
@@ -100,6 +100,8 @@ import Footer from '../Components/footerComponent/footer'
           <br/>
 
           <AvField name="password" label="Password" type="password" placeholder="********" validate={{minLength: {value: 5}, required: {value: true}}} />
+          <NavLink href='/signup/1'><div className="small">Not a member? <b>Signup</b></div></NavLink>
+
           <br/>
           <br/>
 

@@ -194,4 +194,12 @@ color: aliceblue !important;
      
 }
 
+
+.stretch{
+    width: auto;
+    height: 800px;
+  }
+ 
 /* end signup page css */
+
+
