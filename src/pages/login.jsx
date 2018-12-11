@@ -109,7 +109,7 @@ import Footer from '../Components/footerComponent/footer'
         </AvForm>
               <br/>
 
-        {fireRedirect && (<Redirect to={from || '/profile'}/>)}
+        {fireRedirect && (<Redirect to={from || '/profileWelcome'}/>)}
 
  
         </CardBody>

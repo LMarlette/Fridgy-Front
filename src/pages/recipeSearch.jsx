@@ -12,7 +12,7 @@ import axios from 'axios';
     // fires immediately before the initial render
     axios.get('/recipes/recipesByMissing')
     .then((response) => {
-      //alert(response);
+      alert(JSON.stringify(response));
       this.setState({
         recipes: response.data.recipes
       })

@@ -126,7 +126,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
 
 </AvForm>
   
- {fireRedirect && (<Redirect to={from || '/profile'}/>)}
+ {fireRedirect && (<Redirect to={from || '/profileWelcome'}/>)}
  
 
         </CardBody>

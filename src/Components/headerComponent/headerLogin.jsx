@@ -51,7 +51,7 @@ class HeaderLogin extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/profile">Home</NavLink>
+                <NavLink href="/profileWelcome">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/fridge">My Fridge</NavLink>
