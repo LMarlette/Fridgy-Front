@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from '../Components/headerComponent/header';
 import './pages.css'; 
-import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, NavLink,FormGroup,Label,Input,Button, ButtonGroup, Row,Col,Container } from 'reactstrap';
+import { Card,CardText,CardTitle, NavLink,Button, ButtonGroup, Row,Col, } from 'reactstrap';
 //import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
 import Footer from '../Components/footerComponent/footer';
 
@@ -36,41 +36,57 @@ import Footer from '../Components/footerComponent/footer';
       
       <Col sm="12" md={{ size: 8, offset: 2 }}>
       <Card body className="text-center transparentBG" inverse style={{borderColor: 'white' }}> 
-        <CardTitle><div className="titleText">Information</div></CardTitle>
+        <CardTitle><div className="titleText">About Fridgy</div></CardTitle>
         <CardText>
-        <div className="secondText">Excepteur sint occaecat cupidatat non proident, 
-        sunt in culpa qui officia deserunt 
+        <div className="secondText">A food inventory system for your home. 
         </div>
-        <br/>
-          <div className="text">Lorem ipsum dolor sit amet, consectetur 
-        adipisicing elit, sed do
-           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-           veniam, quiepakis nostrud exercitation ullamco laboris nsi ut aliquip ex 
-           ea comepmodo consetquat.
-             <br/>              <br/>
-
-            Sed ut perspiciatis unde omnis iste natus error sit 
-            voluptatem accusantium poeyi doloremque laudantium, totam rem aperiam,
-             eaque ipsa quae apsb illo inventore veritatis et quasi architecto beiatae 
-             vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-              aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos 
-              qui ratione voluptatem sequi nesciunt.       </div>
-              </CardText>
-              <br/>
+      
         <div>
         <ButtonGroup>
 
         <NavLink href="/signup/1">
-        <Button id="btnL" outline color="secondary">Sign Up</Button>
+        <Button id="btnL" outline color="warning">Sign Up</Button>
         </NavLink>
 
          <NavLink href="/login">
-        <Button id="btnR" outline color="secondary">Log In</Button>
+        <Button id="btnR" outline color="warning">Log In</Button>
         </NavLink>
         </ButtonGroup>
-
+        <br />
+        <br/>
         </div>
-      </Card>
+          <div className="text">
+          <div>
+          Fridgy is a brand new app, that helps you keep track of the food in your home. Our app:
+          </div>
+
+          <div>
+          <br />
+          <ul>
+            <li>Keeps an inventory of the food in your fridge and pantry</li>
+            <li>Allows you to view and change the inventory</li>
+            <li>Suggests recipes based on what is in your inventory </li>
+            <li>Automatically updates your inventory when you complete a recipe</li>
+            <li> <font color="red">Saves you money and eliminates food waste!</font></li>
+
+          </ul>
+             <br/> 
+          We created fridgy because we wanted to find a way to get amazing recipes without 
+          forgetting about what we already have at home. As well as never having to wonder what 
+          you could make when you have a fully stocked fridge at home and no good ideas about what to make. 
+          <br />
+          <br />
+          Never get stuck wondering what there is to make in your fridge, on your way home from a 
+          long day at work or school. Fridgy allows you to view, choose a recipe and if needed stop on the way
+          to pick up any needed ingredients.
+
+       </div>
+       </div>
+              </CardText>
+              <br/>
+    
+
+       </Card>
 
           </Col>
     </Row>

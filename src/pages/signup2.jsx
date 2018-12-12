@@ -3,13 +3,13 @@ import Header from '../Components/headerComponent/header';
 import './pages.css'; 
 
 //reactstrap nonsense
-import { Card, CardGroup, CardImg,CardText,CardBody,CardTitle, Progress, CardSubtitle, NavLink,FormGroup,Label,Input,Button,Row,Col,Container } from 'reactstrap';
-import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
+import { Card, CardGroup,CardBody,CardTitle, Progress,FormGroup,Label,Button,Row,Col } from 'reactstrap';
+import { AvForm, AvField, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
 import { Redirect } from 'react-router'
 
 //images
 import food from '../Assets/images/food2.jpg';
-import logo from '../Assets/images/fridgy-logo.svg'
+//import logo from '../Assets/images/fridgy-logo.svg'
 
 
  class SignUp2 extends Component {
@@ -36,7 +36,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
    this.setState({ 
      fireRedirect: true, values })
     
-     const diet = this.state.values.dietType;
+     //const diet = this.state.values.dietType;
      const allergy = this.state.values.allergy;
      const otherAllergy = this.state.values.otherAllergy;
      const select = this.state.values.select;
@@ -54,16 +54,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
 
     return (
      <div className="cComponent" style={divStyle} >
-{/* <div> */}
-      <header>
-     <div className='center'> 
-      <img src={logo} className="headerLogo" alt="Fridgy Logo" />
-
-        FRIDGY
-        
-        </div>
-    
-      </header>
+<Header />
       
   
   <Row>
@@ -72,8 +63,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
     <CardGroup> 
       <Card >
  
-      <CardImg width="100%" src={food} alt="food prep img" />
- 
+      <div><img className="stretch" src={food} alt="food prep img" /></div> 
       </Card>
  
        <Card body className="transparentBG" inverse style={{borderColor: 'white' }}> 
@@ -136,7 +126,7 @@ import logo from '../Assets/images/fridgy-logo.svg'
 
 </AvForm>
   
- {fireRedirect && (<Redirect to={from || '/profile'}/>)}
+ {fireRedirect && (<Redirect to={from || '/profileWelcome'}/>)}
  
 
         </CardBody>

@@ -3,13 +3,13 @@ import Header from '../Components/headerComponent/header';
 import './pages.css'; 
 
 //reactstrap nonsense
-import { Card, CardGroup, CardImg,CardText,CardBody,CardTitle, Progress, CardSubtitle, NavLink,FormGroup,Label,Input,Button,Row,Col,Container } from 'reactstrap';
-import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
+import { Card, CardGroup,CardBody,CardTitle, Progress, NavLink,Button,Row,Col } from 'reactstrap';
+import { AvForm, AvField} from 'availity-reactstrap-validation';
 import { Redirect } from 'react-router'
 
 //images
 import food from '../Assets/images/food2.jpg';
-import logo from '../Assets/images/fridgy-logo.svg'
+//import logo from '../Assets/images/fridgy-logo.svg'
 
 
  class SignUp1 extends Component {
@@ -66,17 +66,10 @@ import logo from '../Assets/images/fridgy-logo.svg'
 
     return (
 <div className="cComponent" style={divStyle} >
-{/* <div> */}
-      <header>
-     <div className='center'> 
-      <img src={logo} className="headerLogo" alt="Fridgy Logo" />
+<Header />
+      <br />
+      <br/>
 
-        FRIDGY
-        
-        </div>
-    
-      </header>
-      
   
   <Row>
     <Col sm="12" md={{ size: 8, offset: 2 }}>
@@ -84,7 +77,8 @@ import logo from '../Assets/images/fridgy-logo.svg'
     <CardGroup> 
       <Card >
  
-      <CardImg className="card-img-top" width="100%" src={food} alt="food prep img" />
+ <div><img className="stretch" src={food} alt="food prep img" /></div>
+      
  
       </Card>
  

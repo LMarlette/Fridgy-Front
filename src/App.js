@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
-  Switch,
-  Redirect
+  Switch
 } from 'react-router-dom';
 
 import './App.css';
@@ -41,7 +39,7 @@ class App extends Component {
           <Route path='/fridge' component={Fridge} />
           <Route path='/signup/2' component={SignUp2} />
           <Route path='/signup/1' component={SignUp} />
-          <Route component={About} /> // If an unknown route is called redirect to About
+          <Route component={About} /> {/* If an unknown route is called redirect to About*/}
         
 
           {/*

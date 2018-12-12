@@ -8,11 +8,7 @@ import '../../App.css';
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+  NavLink} from 'reactstrap';
 
   import './header.css';
   import logo from  '../../Assets/images/fridgy-logo.svg';
@@ -34,18 +30,13 @@ class Header extends Component {
   render() {
     return (
 <div>
-<header>
-<div className="center">
-
-<div className='clearfix'>
-<img src={logo} className="headerLogo" alt="WhyCS Logo" />
+ <header>
+ 
+ <img src={logo} className="headerLogo" alt="WhyCS Logo" />
 
 <div className="headerText">FRIDGY</div>  
-</div>
-</div>
- </header>
-
-
+  </header>
+ 
 
 <div>
         <Navbar color="light" light expand="md">

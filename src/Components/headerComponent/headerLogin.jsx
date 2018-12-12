@@ -9,10 +9,7 @@ import '../../App.css'
   Nav,
   NavItem,
   NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem } from 'reactstrap';
+ } from 'reactstrap';
 
   import './header.css';
   import logo from  '../../Assets/images/fridgy-logo.svg';
@@ -36,6 +33,7 @@ class HeaderLogin extends Component {
 <div>
 <header>
 <div className='clearfix'>
+
 <img src={logo} className="headerLoginLogo" alt="WhyCS Logo" />
 
 <div className="headerLoginText">FRIDGY</div>  
@@ -53,13 +51,7 @@ class HeaderLogin extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/about">About</NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/contact">Contact</NavLink>
+                <NavLink href="/profileWelcome">Home</NavLink>
               </NavItem>
               <NavItem>
                 <NavLink href="/fridge">My Fridge</NavLink>
@@ -69,7 +61,7 @@ class HeaderLogin extends Component {
               </NavItem>
               {/* how do we do the logout */}
               <NavItem>
-                <NavLink href="/logout">Recipe Search</NavLink>
+                <NavLink href="/logout">Logout</NavLink>
               </NavItem>
             </Nav>
           </Collapse>
