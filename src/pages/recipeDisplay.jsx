@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Header from '../Components/headerComponent/header';
+//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import HeaderLogin from '../Components/headerComponent/headerLogin';
 import './pages.css'; 
-import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, NavLink,FormGroup,Label,Input,Button, ButtonGroup, Row,Col,Container } from 'reactstrap';
+import { Card,CardText,CardTitle,Row,Col } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import axios from 'axios';
 
@@ -74,7 +74,7 @@ import axios from 'axios';
       recipe.forEach((recipeIng) => {
         alreadyHave = false;
         user.forEach((userIng) => {
-          if (recipeIng.id == userIng.id) 
+          if (recipeIng.id === userIng.id) 
             alreadyHave = true;
         })
         if (!alreadyHave) 
@@ -128,6 +128,7 @@ import axios from 'axios';
     };
     return (
       <div className="cComponent" style={divStyle} >
+      <HeaderLogin/>
         <br/>
         <div className='homePad'>
           <Row>

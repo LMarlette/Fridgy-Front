@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderLogin from '../Components/headerComponent/headerLogin';
 import './pages.css'; 
-import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardDeck, CardColumns, NavLink,FormGroup,Label,Input,Button, ButtonGroup, Row,Col,Container } from 'reactstrap';
+import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardColumns, NavLink,Button, ButtonGroup,Col } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import Avacado from '../Assets/images/avacado.jpg'; 
 

@@ -3,13 +3,13 @@ import Header from '../Components/headerComponent/header';
 import './pages.css'; 
 
 //reactstrap nonsense
-import { Card, CardGroup, CardImg,CardText,CardBody,CardTitle, Progress, CardSubtitle, NavLink,FormGroup,Label,Input,Button,Row,Col,Container } from 'reactstrap';
-import { AvForm, AvField, AvGroup, AvInput, AvFeedback, AvRadioGroup, AvRadio } from 'availity-reactstrap-validation';
+import { Card, CardGroup,CardBody,CardTitle, Progress, NavLink,Button,Row,Col } from 'reactstrap';
+import { AvForm, AvField} from 'availity-reactstrap-validation';
 import { Redirect } from 'react-router'
 
 //images
 import food from '../Assets/images/food2.jpg';
-import logo from '../Assets/images/fridgy-logo.svg'
+//import logo from '../Assets/images/fridgy-logo.svg'
 
 
  class SignUp1 extends Component {

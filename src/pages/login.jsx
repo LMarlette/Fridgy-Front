@@ -4,10 +4,10 @@ import Header from '../Components/headerComponent/header';
 import { Card, CardGroup, CardImg,CardBody,CardTitle,Button,Row,Col,NavLink } from 'reactstrap';
 import { AvForm, AvField } from 'availity-reactstrap-validation';
 import { Redirect } from 'react-router'
-import { localInstance } from '../config/instances';
+//import { localInstance } from '../config/instances';
 import axios from 'axios';
 import food from '../Assets/images/food1.jpg';
-import logo from '../Assets/images/fridgy-logo.svg'
+//import logo from '../Assets/images/fridgy-logo.svg'
 import Footer from '../Components/footerComponent/footer'
 
  class Login extends Component {

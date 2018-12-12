@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+//import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import HeaderLogin from '../Components/headerComponent/headerLogin';
 import './pages.css'; 
-import { Card, CardImgOverlay, CardImg,CardText,CardBody,CardTitle,CardSubtitle, NavLink,FormGroup,Label,Input,Button, ButtonGroup, Row,Col,Container } from 'reactstrap';
+import { Card, CardImgOverlay, CardImg, Row,Col, Button } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import axios from 'axios';
 import _ from 'lodash';
@@ -22,6 +22,8 @@ var localInstance = axios.create({
  class Fridge extends Component {
   constructor(props) {
     super(props);
+    this.handleValidSubmit = this.handleValidSubmit.bind(this)
+
     this.state = {
       ingredients: [],
       ingredients1: [],
@@ -62,7 +64,12 @@ var localInstance = axios.create({
   }
 
     
-
+  handleValidSubmit(event, values) {
+    event.preventDefault()
+   this.setState({ 
+     fireRedirect: true, values })
+   localStorage.setItem('inputs', JSON.stringify(values));
+      }
 
 
     
@@ -85,7 +92,7 @@ var localInstance = axios.create({
                  <div className='ingCard'>
             <small className="ingTextColor">You bought this item on: {date} </small>
           </div>
-                 
+                 <Button>Delete</Button>
                 </CardImgOverlay>
               </Card>
             </div>});
@@ -159,10 +166,8 @@ function formatDate(date) {
 	var d = new Date(date),
 		month = d.getMonth(),
 		date = d.getDate(),
-		year = d.getFullYear(),
-		hours = ('0' + d.getHours()).slice(-2),
-		minutes = ('0' + d.getMinutes()).slice(-2),
-		seconds = ('0' + d.getSeconds()).slice(-2);
+		year = d.getFullYear()
+	 
 
     month++;
 
