@@ -211,7 +211,7 @@ color: aliceblue !important;
     font-size: 50px !important;
     text-align: center;
     font-weight: 900;
-    background: rgba(255, 255, 255np, 0.5);
+   /* background-color: rgba(255,255,255,0.9); */
 
 
 }
@@ -242,4 +242,31 @@ color: aliceblue !important;
     left: 25px;
 }
 
+
+.fridgeCard{
+    opacity: .9;
+    background-color: white !important;
+    padding: 15px 32px;
+    margin: 25px;
+    height: 300px;
+}
+
+.fridgeImg{
+    height: 90px;
+    width: auto;
+}
+
+.cardBg {
+    height: 100%;
+}
+
+.itemAdd{
+    text-align: center !important;
+    background: rgba(255, 255, 255, 0.6);
+        color: black !important;
+        border-radius: 25px;
+
+
+}
 /* end fridge page */
+
