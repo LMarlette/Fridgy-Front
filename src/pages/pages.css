@@ -258,7 +258,12 @@ color: aliceblue !important;
     margin: 25px;
     height: 300px;
 }
-
+.fridgeCard1{
+    opacity: .9;
+    background-color: white !important;
+    padding: 15px 32px;
+    margin: 25px;
+}
 .fridgeImg{
     height: 90px;
     width: auto;
