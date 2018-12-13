@@ -64,13 +64,14 @@
 
 
 .transparentBgRecipe{
-    opacity: .9;
-    background-color: #2699FB !important;
+    background: rgba(68, 155, 226, 0.6) !important;
+
+ 
 }
 
 
 .recipeCard{
-    opacity: .9;
+    background: rgba(255, 255, 255, 0.5) !important;
     background-color: white !important;
     padding: 15px 32px;
     margin: 25px;
@@ -108,18 +109,25 @@ color: aliceblue !important;
     font-size: 50px !important;
 }
 
-.recipeImg{
-    border-radius: 50%;
-    width: 100px;
-    height: auto;
 
-}
 .recipeCardTitle{
     color:  #2699FB !important;
     font-family: 'Poppins', sans-serif !important;
     font-size: 30px !important;
 }
+
+
  
+.recipeImg{
+    opacity: 1 !important;
+    text-align: center;
+    margin-left: auto;
+	margin-right: auto;
+	display: block;
+   width: auto;
+    height: 275px;
+
+ }
 
 /* button alignment to center horizontally */
 
@@ -270,3 +278,47 @@ color: aliceblue !important;
 }
 /* end fridge page */
 
+
+/* recipe Display*/
+
+
+.transparentBgRecipeDisplay{
+    background: rgba(255, 255, 255, 0) !important;
+
+ 
+}
+
+.recipeCardTitle{
+    color: #2699FB !important;
+    font-size: 50px !important;
+    background: rgba(255, 255, 255, .8) !important;
+    border-radius: 25px;
+
+}
+
+.btnTextR{
+     font-family: 'Poppins', sans-serif !important;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 25px;
+    color: black !important;
+
+}
+
+.recIng{
+    font-family: 'Poppins', sans-serif !important;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 15px !important;
+
+}
+
+.recipeCText{
+    background: rgba(255, 255, 255, 0.9) !important;
+    border-radius: 15px !important; 
+}
+
+.recipeDispImg{
+    border:7px solid white;
+    width: 775px;
+    height: auto;
+
+}

@@ -4,18 +4,18 @@ import './pages.css';
 import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardColumns, NavLink,Button, ButtonGroup,Col } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import Avacado from '../Assets/images/avacado.jpg'; 
-import Axios from 'axios';
-
+import axios from 'axios'
 class ProfileWelcome extends Component {
-    componentWillMount() {
-      Axios.get('/user/username')
-    }
+  
+
+
     constructor(props) {
       super(props);
   
       this.toggle = this.toggle.bind(this);
       this.state = {
-        isOpen: false
+        isOpen: false,
+        userName: '',
       };
     }
     toggle() {
@@ -23,6 +23,22 @@ class ProfileWelcome extends Component {
         isOpen: !this.state.isOpen
       });
     }
+
+    componentWillMount() {
+     
+      axios.get('/user/username')
+     .then(response => {  
+             alert(JSON.stringify(response));  
+         //const userName = response.data.Name
+        // this.setState({userName})
+         //alert(userNAme);
+  })
+     .catch((error) => {
+       alert(`Error querying for username: \n${error}`);
+     });   
+   }
+
+
    
     render() {
       return (

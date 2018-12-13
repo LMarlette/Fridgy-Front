@@ -11,6 +11,7 @@ class RecipeDisplay extends Component {
   getNeeded() {
     var needIngredients = [];
     var alreadyHave;
+ 
     this.state.recipeIngredients.forEach((recipeIng) => {
       alreadyHave = false;
       this.state.userIngredients.forEach((userIng) => {
@@ -22,8 +23,8 @@ class RecipeDisplay extends Component {
     })
     this.setState({
       neededIngredients: needIngredients,
-    })
-  }
+     })
+   }
   componentWillMount() {
     const { match: { params } } = this.props;
     const recipeId = params.recipeId;
@@ -36,17 +37,20 @@ class RecipeDisplay extends Component {
       const recipe = response.data.res
       const recipeIngredientsRaw = recipe.extendedIngredients;
       const recipeIngredients = recipeIngredientsRaw.map((ingredient) => {
-      return {
+        return {
         ID:ingredient.id,
         Name:ingredient.name,
         Type:ingredient.aisle,
         ImgURL:`https://spoonacular.com/cdn/ingredients_100x100/${ingredient.image}`,
+        Amount: ingredient.amount,
+        Unit: ingredient.unit,
       }
       });
+
       this.setState({
         recipe: recipe,
         recipeIngredients: recipeIngredients,
-      }, this.getNeeded)
+       }, this.getNeeded)
     })
     .catch((error) => {
       alert(`Error getting recipe detail: \n${error}`);
@@ -63,6 +67,7 @@ class RecipeDisplay extends Component {
         ImgURL: ingredient.ImgURL,
       }
       });
+
       this.setState({
         userIngredients: userIngredients
       },
@@ -86,7 +91,7 @@ class RecipeDisplay extends Component {
       userIngredients: [],
       neededIngredients: [],
       readyToCook: false,
-    };
+     };
   }
   handleAddIngredients(event, values) {
     event.preventDefault();
@@ -137,37 +142,59 @@ class RecipeDisplay extends Component {
 
   render() {
     const readyToCook = this.state.readyToCook;
-    let button;
+    let buttonAdd;
+    let buttonRemove;
 
-    if (readyToCook) {
-      button = <Button onClick={this.handleRemoveIngredients} outline color="secondary">Recipe Completed</Button>;
-    } else {
-      button = <Button onClick={this.handleAddIngredients} outline color="primary">Add Ingredients</Button>;
+    if (!readyToCook) {
+      buttonAdd = 
+      <div class="btnTextR">
+      <br />
+      <Button onClick={this.handleAddIngredients} className='fridgeBtn' color="warning" size="lg">Add Ingredients</Button>
+      <br />
+      <p>Clicking this button will add needed ingredients to your inventory!</p>
+      </div>
     }
 
+    if(readyToCook || neededIngredientNames === null){
+    buttonRemove = 
+    <div class="btnTextR">
+          <br />
+    <Button onClick={this.handleRemoveIngredients} className='fridgeBtn' color="danger" size="lg">Recipe Completed</Button>
+    <br />
+
+    <p>Clicking this button will delete the ingredients used for this recipe from your fridge!</p>
+    </div>
+  }
     const recipeIngredientNames = this.state.recipeIngredients.map((ingredient) => {
       return <div class='text'>
-              <p>{ingredient.Name}</p>
+              <p>{ingredient.Amount}  {ingredient.Unit}  {ingredient.Name}</p>
              </div>
     });
-    const userIngredientNames = this.state.userIngredients.map((ingredient) => {
-      return <div class='text'>
-              <p>{ingredient.Name}</p>
-             </div>
-    });
+    // const userIngredientNames = this.state.userIngredients.map((ingredient) => {
+    //   return <div class='text'>
+    //           <p>{ingredient.Name}</p>
+    //          </div>
+    // });
     const neededIngredientNames = this.state.neededIngredients.map((ingredient) => {
       return <div class='text'>
               <p>{ingredient.Name}</p>
              </div>
     });
 
-    const bgimg1 = require('../Assets/images/bg3.jpg');
+    const recipeText = this.state.recipe.instructions;
+    const recipeImage = this.state.recipe.image;
+    const readyIn = this.state.recipe.readyInMinutes;
+     //alert(recipeText);
+
+    const bgimg2 = require('../Assets/images/bg2.jpg');
     const divStyle = {
       width: '100%',
       height: '100%',
-      backgroundImage: `url(${bgimg1})`,
-      backgroundSize: 'cover'  
+      backgroundImage: `url(${bgimg2})`,
+      backgroundSize: 'cover', 
+      backgroundAttachment: 'fixed'
     };
+
     return (
       <div className="cComponent" style={divStyle} >
       <HeaderLogin/>
@@ -175,21 +202,58 @@ class RecipeDisplay extends Component {
         <div className='homePad'>
           <Row>
             <Col sm="12" md={{ size: 8, offset: 2 }}>
-              <Card body className="text-center transparentBG" inverse style={{borderColor: 'white' }}> 
+              <Card body className="text-center transparentBgRecipeDisplay" inverse style={{border: 'none'}}> 
                 <CardTitle>
-                  <div className="titleText">{this.state.recipe.title}</div></CardTitle>
+                  <h1 className="recipeCardTitle">{this.state.recipe.title}</h1>
+                  <br/>
+                  <h3>Recipe Time: About {readyIn} minutes</h3>
+                  </CardTitle>
                     <CardText>
+                     <div> <img className="recipeDispImg" src={recipeImage}></img></div>
+                      <br/> 
                       <div className="secondText">
-                      {button}
+                      {buttonAdd}
                       <br/>
-                      <p class='text'><b>Recipe Ingredients</b></p>
+
+                      <Row>
+                      <Col sm="1"></Col>
+                    <Col sm="5" > 
+                    <Card body className="text-center fridgeCard"> 
+                     <p><b>Recipe Ingredients</b></p>
                       {recipeIngredientNames}
-                      <p class='text'><b>User Ingredients</b></p>
-                      {userIngredientNames}
-                      <p class='text'><b>Needed Ingredients</b></p>
-                      {neededIngredientNames}                    
-                      </div>
+                     </Card>
+                    </Col>
+
+                    <Col sm="5" >
+                    <Card body className="text-center fridgeCard"> 
+                    <p><b>Needed Ingredients</b></p>
+                      {neededIngredientNames}  
+                      </Card>
+                    </Col>
+                    <Col sm="1"></Col>
+                      </Row>
+                       
+                       <Row>
+                         <Col>
+                         <Card className="recipeCText">
+                        <br />
+                      <h3>Recipe Details</h3>
+                      <br />
+
+                      {recipeText} 
+                      <br />
+                      <br />
+
+                      </Card>              
+                        </Col>
+                      </Row>
+                    
                       <br/>
+                      <br/>
+                      <br/>
+                      {buttonRemove}
+
+                         </div>
                     </CardText>
                     <br/>
                   <div>
