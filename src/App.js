@@ -11,6 +11,7 @@ import './App.css';
 import About from './pages/about';
 import Contact from './pages/contact';
 import Login from './pages/login';
+import Logout from './pages/logout';
 import Profile from './pages/profile';
 import ProfileWelcome from './pages/profileWelcome';
 import RecipeSearch from './pages/recipeSearch';
@@ -31,6 +32,7 @@ class App extends Component {
           <Route path='/about' component={About} />
           <Route path='/contact' component={Contact} />
           <Route path='/login' component={Login} />
+          <Route path='/logout' component={Logout} />
           <Route path='/profile' component={Profile} />
           <Route path='/profilewelcome' component={ProfileWelcome} />
           <Route path='/recipesearch' component={RecipeSearch} />

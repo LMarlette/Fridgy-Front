@@ -4,9 +4,12 @@ import './pages.css';
 import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardColumns, NavLink,Button, ButtonGroup,Col } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import Avacado from '../Assets/images/avacado.jpg'; 
+import Axios from 'axios';
 
 class ProfileWelcome extends Component {
-  
+    componentWillMount() {
+      Axios.get('/user/username')
+    }
     constructor(props) {
       super(props);
   
