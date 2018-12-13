@@ -9,16 +9,6 @@ import axios from 'axios';
 import _ from 'lodash';
 import wood from '../Assets/images/wood.jpg'
 
-var localInstance = axios.create({
-  baseURL: 'http://localhost:8000/api', 
-  headers: {
-    "Accept": "application/json",
-   //"Access-Control-Allow-Origin": "*",
-    //'Authorization': 'Bearer '+ USER_TOKEN
-  }
-});
-
-
  class Fridge extends Component {
   constructor(props) {
     super(props);
@@ -26,7 +16,7 @@ var localInstance = axios.create({
     this.handleFoodAdd = this.handleFoodAdd.bind(this)
     this.state = {
       shouldUpdate: false,
-
+      ready: false,
       ingredients: [],
       ingredients1: [],
       ingredients2: []
@@ -34,29 +24,31 @@ var localInstance = axios.create({
   }
 
 
-     componentWillMount() {
-     
-     localInstance.get('/user/ingredients')
-    .then(response => {  
-            //alert(JSON.stringify(response));  
-        const ingredients = response.data.ingredients
-        this.setState({ingredients})
-        //alert(ingredients);
-        var split = _.ceil(ingredients.length / 2);
-        var splitIngredirents = _.chunk(ingredients, split);
-    this.setState ({
-      ingredients1: splitIngredirents[0],
-      ingredients2: splitIngredirents[1],
+    componentWillMount() {
+    axios.get('/user/ingredients')
+    .then(response => { 
+      const ingredients = response.data.ingredients
+      this.setState({ingredients})
+      var split = _.ceil(ingredients.length / 2);
+      console.log('SPLIT');
+      console.log(split);
+      var splitIngredirents = _.chunk(ingredients, split);
+      console.log('INGRED ARRAY');
+      console.log(splitIngredirents);
+      this.setState ({
+        ready: true,
+        ingredients1: splitIngredirents[0],
+        ingredients2: splitIngredirents[1],
+      })
     })
- })
     .catch((error) => {
-      alert(`Error querying for recipes: \n${error}`);
-    });   
+      alert(`Error querying for ingredients: \n${error}`);
+    });  
   }
 
   checkUpdate(){
     if (this.state.shouldUpdate === true){
-      localInstance.get('/user/ingredients')
+      axios.get('/user/ingredients')
       .then(response => {
         const ingredients = response.data.ingredients
         this.setState({ingredients})
@@ -79,7 +71,7 @@ var localInstance = axios.create({
    this.setState({ 
       values })
     const foodItem = this.state.values.foodName;
-    localInstance.post('/user/ingredientsFromFridge', {
+    axios.post('/user/ingredientsFromFridge', {
       ingredientString: foodItem 
      })
      .then(res => {
@@ -98,20 +90,21 @@ var localInstance = axios.create({
     event.preventDefault()
     const foodID = event.target.id;
     const foodName = event.target.name;
-   localInstance.delete('/user/ingredients', { params: {ingredients: [foodID]}})
-   .then(res => { 
-    this.setState({
-      shouldUpdate: true
+    axios.delete('/user/ingredients', { params: {ingredients: [foodID]}})
+    .then(res => { 
+      this.setState({
+        shouldUpdate: true
+      })
+      this.checkUpdate()
     })
-    this.checkUpdate()
-    alert(foodName + ' deleted from inventory!');
-  })
-  .catch((error) => {
-    alert(`Error deleting ingredient: \n${error}`);
-  });
+    .catch((error) => {
+      alert(`Error deleting ingredient: \n${error}`);
+    });
 }
 
   render() {
+    console.log('INGREDIENTS');
+    console.log(this.state.ingredients1);
     const Ingred1 = this.state.ingredients1.map((ingredient) => {
     var date = formatDate(ingredient.createdAt)
     var foodImg = ingredient.ImgURL
@@ -141,7 +134,6 @@ var localInstance = axios.create({
 const Ingred2 = this.state.ingredients2.map((ingredient) => {
   var date = formatDate(ingredient.createdAt)
   var foodImg = ingredient.ImgURL
-  //var ingredTest = ingredient.Name;
   return <div class='text'>
             <Card body className="text-center fridgeCard"> 
                 
@@ -203,8 +195,8 @@ const Ingred2 = this.state.ingredients2.map((ingredient) => {
               
                   <Row>
                     <Col sm="2"></Col>
-                    <Col sm="4"> <div>{Ingred1}</div></Col>
-                    <Col sm="4"> <div>{Ingred2}</div></Col>
+                    {this.state.ready && <Col sm="4"> <div>{Ingred1}</div></Col>}
+                    {this.state.ready && <Col sm="4"> <div>{Ingred2}</div></Col>}
 
                     <Col sm="2"></Col>
                   </Row>
