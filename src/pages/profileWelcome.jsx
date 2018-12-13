@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import HeaderLogin from '../Components/headerComponent/headerLogin';
 import './pages.css'; 
-import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardColumns, NavLink,Button, ButtonGroup,Col } from 'reactstrap';
+import { Card,CardImgOverlay, Row,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardColumns, NavLink,Button, ButtonGroup,Col } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import Avacado from '../Assets/images/avacado.jpg'; 
 import axios from 'axios'
+import FridgeComponent from '../Components/fridge';
+import recipe1 from '../Assets/images/foodPrep.jpg';
+import recipe2 from '../Assets/images/foodPrep.jpg';
+
 class ProfileWelcome extends Component {
   
 
@@ -26,12 +30,12 @@ class ProfileWelcome extends Component {
 
     componentWillMount() {
      
-      axios.get('/user/username')
+      axios.get('/auth/username')
      .then(response => {  
-             alert(JSON.stringify(response));  
-         //const userName = response.data.Name
-        // this.setState({userName})
-         //alert(userNAme);
+             //alert(JSON.stringify(response));  
+         const userName = response.data.firstName
+        this.setState({userName})
+       //alert(userName);
   })
      .catch((error) => {
        alert(`Error querying for username: \n${error}`);
@@ -41,6 +45,8 @@ class ProfileWelcome extends Component {
 
    
     render() {
+      const user = this.state.userName;
+
       return (
    
       <div style={divStyle} >
@@ -52,17 +58,21 @@ class ProfileWelcome extends Component {
     <div>
   
 
-    <CardColumns className="px-4 py-3">   
-      <Col> 
+    <Col sm="12">   
+     
+ <Row>
+      <Col sm="3" > 
         <Card body>
             <CardBody>
             <CardImg top width="100%" src={Avacado} alt="Profile image" className="card-img-top rounded-circle"/>
-             
-              <CardTitle className="titleText">User Name</CardTitle>
+             <br/>
+             <br/>
+
+              <CardTitle className="text">Welcome Back</CardTitle>
               <br/>
-              <CardSubtitle className="secondText" >Full Name</CardSubtitle>
+              <CardSubtitle className="titleText" >{user}</CardSubtitle>
               <br/>
-              <CardText className="textCenter">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</CardText>
+              <CardText className="secondText">From here you can view your Fridge, your homes inventory; search for recipes, select a recipe and view the instructions and missing ingredients you will need.</CardText>
               <ButtonGroup>
               <NavLink href="">
               <Button id="btn" outline color="secondary">Edit</Button>
@@ -71,60 +81,61 @@ class ProfileWelcome extends Component {
             </CardBody>
          </Card>
          </Col>
+        
+         
+           
+             
+            <Col sm="5">
+            <div> <br /><h1 className="fridgeTitle">WELCOME</h1> <br/>   </div>
 
-         <Col>         
             <Card body>
               <CardBody>
-                <CardTitle className="titleText">Card 1</CardTitle>
+                <CardTitle className="titleText">Your fridge</CardTitle>
                 <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
               <br/>
-                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+                <CardText >
+              <FridgeComponent/>
+                </CardText>
               </CardBody>
             </Card>
-            <Card body>
+   
+      </Col>
+  
+      <Col sm ="4">
+            <Card >
               <CardBody>
-                <CardTitle className="titleText">Card 2</CardTitle>
-                <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                <br/>
-                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+                <CardTitle className="titleText">Recipe Suggestions</CardTitle>
               </CardBody>
             </Card>
-            <Card body>
-              <CardBody>
-                <CardTitle className="titleText">Card 3</CardTitle>
-                <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                  <br/>
-                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
-              </CardBody>
+<br/>
+<br/>
+
+            <Card >
+            <img className="welcomeImg" width="100%" src={recipe1} alt="Card image cap" />
+        <CardImgOverlay>
+          <CardTitle className="ingredCardTitle">Chicken Carbonara</CardTitle>
+         
+          <CardText>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </CardText>
+        </CardImgOverlay>
             </Card>
-      
-            <Card body>
-              <CardBody>
-                <CardTitle className="titleText">Card 4</CardTitle>
-                <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                  <br/>
-                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
-              </CardBody>
-            </Card>
-            <Card body>
-              <CardBody>
-                <CardTitle className="titleText">Card 5</CardTitle>
-                <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                <br/>
-                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
-              </CardBody>
-            </Card>
-              <Card body>
-                <CardBody>
-                  <CardTitle className="titleText">Card 6</CardTitle>
-                  <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                      <br/>
-                  <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
-                </CardBody>
+<br/>
+<br/>
+
+              <Card>
+              <CardImg className="welcomeImg" width="100%" src={recipe2} alt="Card image cap" />
+        <CardImgOverlay>
+          <CardTitle className="ingredCardTitle">Char-Grilled Beef Tenderloin with Three-Herb Chimichurri</CardTitle>
+         
+          <CardText>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </CardText>
+        </CardImgOverlay>
               </Card>
               </Col> 
-
-   </CardColumns> 
+              </Row>
+   </Col> 
 
 </div>
       
@@ -141,9 +152,11 @@ class ProfileWelcome extends Component {
   const bgimg1 = require('../Assets/images/bg2.jpg');
   const divStyle = {
     width: '100%',
-    height: '100%',
+    height: 'auto',
     backgroundImage: `url(${bgimg1})`,
-    backgroundSize: 'cover'  
+    backgroundSize: 'cover', 
+    backgroundPosition: 'top', 
+    backgroundAttachment: 'fixed'
   };
   
   
