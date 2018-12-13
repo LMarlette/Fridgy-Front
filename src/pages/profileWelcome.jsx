@@ -26,9 +26,9 @@ class ProfileWelcome extends Component {
 
     componentWillMount() {
      
-      axios.get('/user/username')
+      axios.get('/auth/username')
      .then(response => {  
-             alert(JSON.stringify(response));  
+             alert(JSON.stringify(response.data.firstName));  
          //const userName = response.data.Name
         // this.setState({userName})
          //alert(userNAme);

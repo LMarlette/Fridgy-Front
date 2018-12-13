@@ -86,7 +86,8 @@ class RecipeDisplay extends Component {
   this.handleRemoveIngredients = this.handleRemoveIngredients.bind(this);
     this.state = {
       recipeID: '',
-      recipe: {extendedIngredients:[]},
+      recipe: {extendedIngredients:[],
+               analyzedInstructions: [{steps: []}]},
       recipeIngredients: [],
       userIngredients: [],
       neededIngredients: [],
@@ -181,10 +182,14 @@ class RecipeDisplay extends Component {
              </div>
     });
 
-    const recipeText = this.state.recipe.instructions;
+    const recipeStepsRaw = this.state.recipe.analyzedInstructions[0].steps;
+    const recipeSteps = recipeStepsRaw.map((currStep) => {
+      return<div><br/>{currStep.number}) {currStep.step}</div>
+    })
+
     const recipeImage = this.state.recipe.image;
     const readyIn = this.state.recipe.readyInMinutes;
-     //alert(recipeText);
+    
 
     const bgimg2 = require('../Assets/images/bg2.jpg');
     const divStyle = {
@@ -218,14 +223,14 @@ class RecipeDisplay extends Component {
                       <Row>
                       <Col sm="1"></Col>
                     <Col sm="5" > 
-                    <Card body className="text-center fridgeCard"> 
+                    <Card body className="text-center fridgeCard1"> 
                      <p><b>Recipe Ingredients</b></p>
                       {recipeIngredientNames}
                      </Card>
                     </Col>
 
                     <Col sm="5" >
-                    <Card body className="text-center fridgeCard"> 
+                    <Card body className="text-center fridgeCard1"> 
                     <p><b>Needed Ingredients</b></p>
                       {neededIngredientNames}  
                       </Card>
@@ -240,7 +245,7 @@ class RecipeDisplay extends Component {
                       <h3>Recipe Details</h3>
                       <br />
 
-                      {recipeText} 
+                      {recipeSteps} 
                       <br />
                       <br />
 

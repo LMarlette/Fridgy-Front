@@ -79,7 +79,6 @@ import wood from '../Assets/images/wood.jpg'
         shouldUpdate: true
       })
       this.checkUpdate()
-      alert(foodItem + ' added to inventory!');
     })
     .catch((error) => {
       alert(`Error adding ingredient: \n${error}`);
@@ -110,7 +109,7 @@ import wood from '../Assets/images/wood.jpg'
     var foodImg = ingredient.ImgURL
     return <div class='text'>
       
-              <Card body className="text-center fridgeCard"> 
+              <Card body className="text-center fridgeCard1"> 
                 
                   <CardImg className='cardBg' src={wood}  alt="Missing Img"/>
                   <CardImgOverlay>
