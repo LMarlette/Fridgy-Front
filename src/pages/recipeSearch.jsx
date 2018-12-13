@@ -4,7 +4,7 @@ import HeaderLogin from '../Components/headerComponent/headerLogin';
 import './pages.css'; 
 import { Card,CardImg,CardText,CardBody,CardTitle, Row,Col } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
-
+import _ from 'lodash'
 import axios from 'axios';
 
  class RecipeSearch extends Component {
@@ -13,6 +13,8 @@ import axios from 'axios';
     axios.get('/recipes/recipesByMissing')
     .then((response) => {
       //alert(JSON.stringify(response));
+        // const recipeResponse = response.data.recipes;
+        // const shuffled = _.shuffle(recipeResponse);
       this.setState({
         recipes: response.data.recipes
       })
@@ -37,7 +39,7 @@ import axios from 'axios';
       return <div class='text'>
               <Card body className="text-center recipeCard" inverse style={{borderColor: 'white' }}> 
                 <Link to={`/recipe/${recipe.id}`}>
-                  <CardImg top width="100%" src={recipe.image}  alt="Missing Img"/>
+                <div ><img src={recipe.image} className="recipeImg" alt="Missing recipe Img"/></div>
                   <h2 className="recipeCardTitle">{recipe.title}</h2>
                 </Link >
                 <br />
@@ -59,10 +61,11 @@ import axios from 'axios';
 
     const bgimg1 = require('../Assets/images/bg3.jpg');
     const divStyle = {
-      width: '100%',
-      height: 'auto',
+      width: 'auto',
+      height: '100%',
       backgroundImage: `url(${bgimg1})`,
-      backgroundSize: 'contain'  
+      backgroundSize: 'cover', 
+      backgroundAttachment: 'fixed' 
     };
 
     return (
