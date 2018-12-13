@@ -49,14 +49,14 @@ import Footer from '../Components/footerComponent/footer'
       values
      })
      const email = this.state.values.email;
-     const password = this.state.values.password; 
+     const password = this.state.values.password;
+     console.log('IN SUBMIT'); 
+     console.log(this.state.values.email);
     axios.post('/auth/login', {
       email: email,
-      password: password
+      password: password,
     })
     .then((response) => {
-      alert(`Server response: \n${JSON.stringify(response.data.msg)}\nWelcome ${JSON.stringify(response.data.firstName)}`);
-      //localStorage.setItem('fridgyCookie', response.data.cookie);
       this.setState({  fireRedirect: true})
     })
     .catch((error) => {

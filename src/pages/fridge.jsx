@@ -48,31 +48,24 @@ var localInstance = axios.create({
       ingredients1: splitIngredirents[0],
       ingredients2: splitIngredirents[1],
     })
-    //alert(JSON.stringify(this.state.ingredients1));
-    //alert(JSON.stringify(this.state.ingredients2));
  })
     .catch((error) => {
       alert(`Error querying for recipes: \n${error}`);
     });   
-
   }
-
-
 
   checkUpdate(){
     if (this.state.shouldUpdate === true){
       localInstance.get('/user/ingredients')
-      .then(response => {  
-              //alert(JSON.stringify(response));  
-          const ingredients = response.data.ingredients
-          this.setState({ingredients})
-          //alert(ingredients);
-          var split = _.ceil(ingredients.length / 2);
-          var splitIngredirents = _.chunk(ingredients, split);
-      this.setState ({
-        ingredients1: splitIngredirents[0],
-        ingredients2: splitIngredirents[1],
-      })
+      .then(response => {
+        const ingredients = response.data.ingredients
+        this.setState({ingredients})
+        var split = _.ceil(ingredients.length / 2);
+        var splitIngredirents = _.chunk(ingredients, split);
+        this.setState ({
+          ingredients1: splitIngredirents[0],
+          ingredients2: splitIngredirents[1],
+        })
       })
       .catch((error) => {
         alert(`Error querying for recipes: \n${error}`);
@@ -82,65 +75,47 @@ var localInstance = axios.create({
 
   handleFoodAdd(event, values) {
     event.preventDefault()
-    //event.target.reset();
     document.addForm.reset();
-
    this.setState({ 
       values })
     const foodItem = this.state.values.foodName;
-    //alert(foodItem);
     localInstance.post('/user/ingredientsFromFridge', {
       ingredientString: foodItem 
      })
-     .then(res => { 
-
+     .then(res => {
       this.setState({
         shouldUpdate: true
       })
       this.checkUpdate()
       alert(foodItem + ' added to inventory!');
     })
-      .catch((error) => {
-        alert(`Error adding ingredient: \n${error}`);
-      })
-   
-    }
-  
+    .catch((error) => {
+      alert(`Error adding ingredient: \n${error}`);
+    })
+  }
 
   handleDelete(event) {
     event.preventDefault()
-  const foodID = event.target.id;
-  const foodName = event.target.name;
-  //alert(foodName);
-
-  //  var config = {headers: {"Content-Type": "application/json;"}}
-   
-  // alert(foodID + " " + typeof(foodID));
+    const foodID = event.target.id;
+    const foodName = event.target.name;
    localInstance.delete('/user/ingredients', { params: {ingredients: [foodID]}})
    .then(res => { 
-
     this.setState({
       shouldUpdate: true
     })
     this.checkUpdate()
     alert(foodName + ' deleted from inventory!');
   })
+  .catch((error) => {
+    alert(`Error deleting ingredient: \n${error}`);
+  });
+}
 
-    .catch((error) => {
-      alert(`Error deleting ingredient: \n${error}`);
-    });
-
-    }
-    // this.setState({shouldUpdate: true})
-
-    
   render() {
-
-    //var { ingredients } = this.state.ingredients;
     const Ingred1 = this.state.ingredients1.map((ingredient) => {
-      var date = formatDate(ingredient.createdAt)
-      var foodImg = ingredient.ImgURL
-      return <div class='text'>
+    var date = formatDate(ingredient.createdAt)
+    var foodImg = ingredient.ImgURL
+    return <div class='text'>
       
               <Card body className="text-center fridgeCard"> 
                 
