@@ -268,5 +268,18 @@ color: aliceblue !important;
 
 
 }
-/* end fridge page */
+.profileTitle{
+    color: white !important;
+    text-align: center; 
+    size: 30px; 
+}
+
+.profileSub {
+    color: white !important;
+    size: 15px; 
+    font-family: 'Times New Roman', Times, serif; 
+    font-style: bold;
+    text-align: center; 
+
+}
 

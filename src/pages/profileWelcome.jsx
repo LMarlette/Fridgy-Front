@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import HeaderLogin from '../Components/headerComponent/headerLogin';
 import './pages.css'; 
-import { Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardColumns, NavLink,Button, ButtonGroup,Col } from 'reactstrap';
+import { Row, Card,CardImg,CardText,CardBody,CardTitle,CardSubtitle, CardDeck, CardColumns, CardGroup, NavLink,Button, ButtonGroup,Col } from 'reactstrap';
 import Footer from '../Components/footerComponent/footer';
 import Avacado from '../Assets/images/avacado.jpg'; 
 
@@ -27,17 +27,22 @@ class ProfileWelcome extends Component {
       <div style={divStyle} >
     
       <HeaderLogin />
+      <br/>
+
+      <h1 className="profileTitle">Welcome</h1>
   
-  <br/>
+
   
     <div>
   
-
-    <CardColumns className="px-4 py-3">   
-      <Col> 
-        <Card body>
-            <CardBody>
-            <CardImg top width="100%" src={Avacado} alt="Profile image" className="card-img-top rounded-circle"/>
+       
+    <CardColumns  className="px-4 py-3"  >
+   
+    
+    <Col>
+        <Card>
+            <CardBody >
+            <CardImg top width="50%" height="50%" src={Avacado} alt="Profile image" className="card-img-top rounded-circle"/>
              
               <CardTitle className="titleText">User Name</CardTitle>
               <br/>
@@ -53,8 +58,20 @@ class ProfileWelcome extends Component {
          </Card>
          </Col>
 
-         <Col>         
-            <Card body>
+
+       
+
+    <Col>
+    <h2 className="profileSub">Recent Recipes</h2>
+         <Card >
+              <CardBody>
+                <CardTitle className="titleText">Card 0</CardTitle>
+                <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+          </Card>
+          <Card >
               <CardBody>
                 <CardTitle className="titleText">Card 1</CardTitle>
                 <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
@@ -62,50 +79,102 @@ class ProfileWelcome extends Component {
                 <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
               </CardBody>
             </Card>
-            <Card body>
-              <CardBody>
-                <CardTitle className="titleText">Card 2</CardTitle>
-                <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                <br/>
-                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
-              </CardBody>
-            </Card>
-            <Card body>
+        <Card >
               <CardBody>
                 <CardTitle className="titleText">Card 3</CardTitle>
                 <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                  <br/>
+              <br/>
                 <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
               </CardBody>
-            </Card>
-      
-            <Card body>
+          </Card>
+        
+          <Card >
               <CardBody>
                 <CardTitle className="titleText">Card 4</CardTitle>
                 <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                  <br/>
+              <br/>
                 <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
               </CardBody>
             </Card>
-            <Card body>
+            <Card >
               <CardBody>
                 <CardTitle className="titleText">Card 5</CardTitle>
                 <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                <br/>
+              <br/>
                 <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
               </CardBody>
             </Card>
-              <Card body>
-                <CardBody>
-                  <CardTitle className="titleText">Card 6</CardTitle>
-                  <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
-                      <br/>
-                  <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
-                </CardBody>
-              </Card>
-              </Col> 
+            <Card >
+              <CardBody>
+                <CardTitle className="titleText">Card 5</CardTitle>
+                <CardSubtitle className="secondText" >Card subtitle</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+            </Card>
+            </Col>
+ 
+           </CardColumns>
 
-   </CardColumns> 
+           <h2 className="profileSub">Recent Recipes</h2>
+           <CardDeck className="px-4 py-3" >
+           <Card >
+              <CardBody>
+                <CardTitle className="titleText">Recipe Name</CardTitle>
+                <CardSubtitle className="secondText">Time</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+          </Card>
+          <Card >
+              <CardBody>
+                <CardTitle className="titleText">Recipe Name</CardTitle>
+                <CardSubtitle className="secondText">Time</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+            </Card>
+            <Card >
+              <CardBody>
+                <CardTitle className="titleText">Recipe Name</CardTitle>
+                <CardSubtitle className="secondText">Time</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+          </Card>
+          
+
+          </CardDeck>
+
+          <h2 className="profileSub">30 minutes or less</h2>
+           <CardDeck className="px-4 py-3" >
+           <Card >
+              <CardBody>
+                <CardTitle className="titleText">Recipe Name</CardTitle>
+                <CardSubtitle className="secondText">Time</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+          </Card>
+          <Card >
+              <CardBody>
+                <CardTitle className="titleText">Recipe Name</CardTitle>
+                <CardSubtitle className="secondText">Time</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+            </Card>
+            <Card >
+              <CardBody>
+                <CardTitle className="titleText">Recipe Name</CardTitle>
+                <CardSubtitle className="secondText">Time</CardSubtitle>
+              <br/>
+                <CardText className="text">This card has supporting text below as a natural lead-in to additional content.</CardText>
+              </CardBody>
+          </Card>
+          
+
+          </CardDeck>
 
 </div>
       
